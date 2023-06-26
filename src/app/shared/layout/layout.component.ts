@@ -1,11 +1,12 @@
 import { Component, OnInit, ChangeDetectorRef, OnDestroy, AfterViewInit } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
-import { timer } from 'rxjs';
+import { Observable, filter, map, startWith, timer } from 'rxjs';
 import { Subscription } from 'rxjs';
 
  import { AuthenticationService } from 'src/app/core/services/auth.service';
 import { SpinnerService } from '../../core/services/spinner.service';
 import { AuthGuard } from 'src/app/core/guards/auth.guard';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
     selector: 'app-layout',
@@ -19,6 +20,7 @@ export class LayoutComponent implements OnInit, OnDestroy, AfterViewInit {
     showSpinner: boolean = false;
     userName: string = "";
     isAdmin: boolean = false;
+    currentRoute: any;
 
     private autoLogoutSubscription: Subscription = new Subscription;
 
@@ -26,12 +28,20 @@ export class LayoutComponent implements OnInit, OnDestroy, AfterViewInit {
         private media: MediaMatcher,
         public spinnerService: SpinnerService,
         private authService: AuthenticationService,
-        private authGuard: AuthGuard) {
+        private authGuard: AuthGuard,
+        private router: Router) {
 
         this.mobileQuery = this.media.matchMedia('(max-width: 1000px)');
         this._mobileQueryListener = () => changeDetectorRef.detectChanges();
         // tslint:disable-next-line: deprecation
         this.mobileQuery.addListener(this._mobileQueryListener);
+
+        this.router.events
+        .pipe(filter((event: any) => event instanceof NavigationEnd))
+        .subscribe((event: any) => {
+          this.currentRoute = this.toTitleCase(event.url.substr(event.url.indexOf("/") + 1));
+          console.log(event, this.currentRoute);
+        });        
     }
 
     ngOnInit(): void {
@@ -56,4 +66,13 @@ export class LayoutComponent implements OnInit, OnDestroy, AfterViewInit {
     ngAfterViewInit(): void {
         this.changeDetectorRef.detectChanges();
     }
+
+    toTitleCase(str: string) {
+        return str.replace(
+          /\w\S*/g,
+          function(txt) {
+            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+          }
+        );
+      }
 }

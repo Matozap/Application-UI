@@ -20,15 +20,30 @@
 
         <a mat-list-item [routerLink]="['/customers']" routerLinkActive="mat-list-item-active">
           <mat-icon mat-list-icon>
+            category
+          </mat-icon>
+          <p mat-line> Categories (A) </p>
+        </a>
+
+        <a mat-list-item [routerLink]="['/customers']" routerLinkActive="mat-list-item-active">
+          <mat-icon mat-list-icon>
             card_travel
           </mat-icon>
           <p mat-line> Products (A) </p>
         </a>
+
+        <a mat-list-item [routerLink]="['/customers']" routerLinkActive="mat-list-item-active">
+          <mat-icon mat-list-icon>
+            map
+          </mat-icon>
+          <p mat-line> Locations (A) </p>
+        </a>
+
         <a mat-list-item [routerLink]="['/users']" routerLinkActive="mat-list-item-active">
           <mat-icon mat-list-icon>
             people
           </mat-icon>
-          <p mat-line> Users </p>
+          <p mat-line> Users (A)</p>
         </a>
 
         <a mat-list-item [routerLink]="['/account/profile']">
@@ -92,7 +107,7 @@
     
         <a class="navbar-brand" [routerLink]="['/']" matTooltip="Home">
           <h1>
-            Dashboard
+            {{currentRoute}}
           </h1>
         </a>
     
