@@ -149,6 +149,21 @@ p .mat-icon {
  background-color: #FFF; 
 }
 
+.card-definition {
+  width: 500px;
+  background-color: #f7f7f7;
+}
+
+.mat-flat-button.mat-accent {
+  background-color: #333;
+}
+
+.action-button {  
+  margin-left: 5px !important;
+  margin-right: 5px !important;
+  background-color: #333 !important;
+}
+
 @keyframes show {
   from {
     opacity: 0;

@@ -1,7 +1,7 @@
-<div class="container" fxLayout="row" fxLayoutAlign="center none">
-    <div fxFlex="95%">
+<div class="container" fxLayout="row" fxLayoutAlign="center center">
+    <div>
   
-      <mat-card>
+      <mat-card class="card-definition">
         <mat-card-content>
           <h2>Categories</h2>
   
@@ -22,12 +22,25 @@
             <!-- Symbol Column -->
             <ng-container matColumnDef="actions">
               <th mat-header-cell *matHeaderCellDef mat-sort-header> Actions </th>
-              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+              <td mat-cell *matCellDef="let element"> 
+                <button mat-mini-fab class="action-button">
+                  <mat-icon>edit</mat-icon>
+                </button>  
+                <button mat-mini-fab class="action-button" >
+                  <mat-icon>delete</mat-icon>
+                </button>  
+              </td>
             </ng-container>
           
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
           </table>
+
+          <div>
+            <button mat-flat-button color="primary">
+              <mat-icon>add_circle</mat-icon>  New
+            </button>
+          </div>
           
         </mat-card-content>
       </mat-card>
