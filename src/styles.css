@@ -137,18 +137,6 @@ p .mat-icon {
   animation-fill-mode: forwards;
 }
 
-.mat-list-base .mat-list-item {
-  color: #FFF;
-}
-
-.mat-drawer-side {
-  background: #111;
-}
-
-.mat-app-background, .mat-drawer-container {
- background-color: #FFF; 
-}
-
 .card-definition {
   width: 500px;
   background-color: #f7f7f7;
@@ -163,6 +151,20 @@ p .mat-icon {
   margin-right: 5px !important;
   background-color: #333 !important;
 }
+
+.mat-list-base .mat-list-item {
+  color: #FFF;
+}
+
+.mat-drawer-side {
+  background: #111;
+}
+
+.mat-app-background, .mat-drawer-container {
+ background-color: #FFF; 
+}
+
+
 
 @keyframes show {
   from {
