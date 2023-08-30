@@ -149,7 +149,8 @@ p .mat-icon {
 .action-button {  
   margin-left: 5px !important;
   margin-right: 5px !important;
-  background-color: #333 !important;
+  background-color: #FFF !important;
+  border: 1px solid #333 !important;
 }
 
 .mat-list-base .mat-list-item {
@@ -164,7 +165,11 @@ p .mat-icon {
  background-color: #FFF; 
 }
 
-
+.grid-buttons {
+  display: flex;
+  flex-direction: row-reverse;
+  padding-top: 10px;
+}
 
 @keyframes show {
   from {

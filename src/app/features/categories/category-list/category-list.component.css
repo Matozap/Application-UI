@@ -5,3 +5,7 @@ table {
 th.mat-sort-header-sorted {
     color: #000;
 }
+
+.mat-column-actions {
+   max-width: 60px;
+  }
